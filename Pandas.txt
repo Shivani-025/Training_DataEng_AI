@@ -1,0 +1,133 @@
+Introduction to Pandas
+What is Pandas?
+Pandas is an open-source data analysis and manipulation library for Python. It provides data structures and functions needed to work with structured data seamlessly and efficiently.
+
+Overview and History
+Overview: Pandas offers data structures like DataFrame and Series to handle data manipulation tasks. It is particularly useful for data wrangling and analysis tasks, enabling users to handle data in a way that’s similar to using data frames in R or Excel spreadsheets.
+
+History: Pandas was developed by Wes McKinney in 2008 at AQR Capital Management. The library was designed to address the need for flexible and powerful data manipulation tools in Python. It has since grown into one of the most popular data analysis libraries in Python.
+
+Key Features and Benefits
+Data Structures: Provides DataFrame and Series for efficient data manipulation.
+Data Alignment: Handles missing data gracefully and aligns data automatically.
+Label-based Slicing: Allows slicing and subsetting of large datasets based on labels.
+Time Series Support: Offers robust support for time series data.
+Data Cleaning: Includes tools for handling missing data, cleaning, and preparing data for analysis.
+Performance: Optimized for performance with built-in functions for many common tasks.
+
+Installation and Setup
+Pandas can be installed using pip or conda, which are the most commonly used package managers for Python.
+
+Using pip:
+pip install pandas
+
+Using conda:
+conda install pandas
+
+3. Data Manipulation with Pandas
+3.1 Loading Data
+3.1.1 Reading Data from CSV, Excel, JSON, and SQL
+Pandas provides easy-to-use methods to read data from various file formats.
+
+CSV: pd.read_csv()
+Excel: pd.read_excel()
+JSON: pd.read_json()
+SQL: pd.read_sql()
+
+import pandas as pd
+
+# Reading data from a CSV file
+csv_data = pd.read_csv('data.csv')
+
+# Reading data from an Excel file
+excel_data = pd.read_excel('data.xlsx')
+
+# Reading data from a JSON file
+json_data = pd.read_json('data.json')
+
+# Reading data from a SQL database (assuming a connection object is established)
+import sqlite3
+conn = sqlite3.connect('database.db')
+sql_data = pd.read_sql('SELECT * FROM table_name', conn)
+
+3.1.2 Writing Data to CSV, Excel, JSON, and SQL
+
+CSV: DataFrame.to_csv()
+Excel: DataFrame.to_excel()
+JSON: DataFrame.to_json()
+SQL: DataFrame.to_sql()
+
+# Writing data to a CSV file
+csv_data.to_csv('output.csv', index=False)
+
+# Writing data to an Excel file
+excel_data.to_excel('output.xlsx', index=False)
+
+# Writing data to a JSON file
+json_data.to_json('output.json')
+
+# Writing data to a SQL database
+sql_data.to_sql('table_name', conn, if_exists='replace', index=False)
+
+
+3.2 Data Selection
+3.2.1 Selecting Data by Labels (.loc)
+# Selecting rows with label 'index_label' and specific columns
+data.loc['index_label', ['column1', 'column2']]
+
+3.2.2 Selecting Data by Position (.iloc)
+# Selecting rows and columns by position
+data.iloc[0:5, 0:2]  # First 5 rows, first 2 columns
+
+3.2.3 Boolean Indexing
+# Selecting rows based on a condition
+filtered_data = data[data['column_name'] > value]
+
+
+3.3 Data Cleaning
+3.3.1 Handling Missing Data (dropna, fillna)
+# Dropping rows with any missing values
+data.dropna()
+
+# Filling missing values with a specific value
+data.fillna(value=0)
+
+3.3.2 Removing Duplicates
+# Removing duplicate rows
+data.drop_duplicates()
+
+3.3.3 Data Type Conversion
+# Converting data type of a column
+data['column_name'] = data['column_name'].astype('float')
+
+3.3.4 String Operations
+# Converting a column to lowercase
+data['string_column'] = data['string_column'].str.lower()
+
+3.4 Data Transformation
+3.4.1 Applying Functions to Data (apply, map, applymap)
+# Applying a function to a column
+data['new_column'] = data['column_name'].apply(lambda x: x * 2)
+
+# Mapping values in a Series
+data['mapped_column'] = data['column_name'].map({'A': 1, 'B': 2})
+
+# Applying a function to the entire DataFrame
+data = data.applymap(lambda x: x * 2)
+
+3.4.2 Sorting and Ranking Data
+# Sorting data by a column
+data.sort_values(by='column_name', ascending=False)
+
+# Ranking data
+data['rank'] = data['column_name'].rank()
+
+3.4.3 Binning and Discretization
+# Binning data into discrete intervals
+bins = [0, 10, 20, 30, 40, 50]
+labels = ['0-10', '10-20', '20-30', '30-40', '40-50']
+data['binned'] = pd.cut(data['column_name'], bins=bins, labels=labels)
+
+
+
+

@@ -1,0 +1,68 @@
+1. Introduction to NumPy
+1.1 What is NumPy?
+NumPy, short for Numerical Python, is a fundamental library for scientific computing in Python. It provides support for large multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently.
+
+1.1.1 Overview and History
+NumPy is an open-source library that allows for high-performance operations on large arrays and matrices. It is a core library in the Python ecosystem, particularly useful for mathematical and statistical operations.
+NumPy was created in 2005 by Travis Oliphant, incorporating features from its predecessor, Numeric, and another library called Numarray. It has since become a cornerstone of scientific computing in Python.
+
+1.1.2 Key Features and Benefits
+Multi-dimensional Arrays: NumPy provides the ndarray object, a powerful N-dimensional array.
+Mathematical Functions: A wide range of mathematical operations (e.g., linear algebra, Fourier transforms, and random number generation) can be performed efficiently.
+Performance: Operations on NumPy arrays are significantly faster than standard Python lists due to its implementation in C.
+Broadcasting: This feature allows for vectorized operations on arrays of different shapes, making code more concise and easier to read.
+Integration: NumPy integrates seamlessly with other libraries in the Python ecosystem, such as SciPy, Pandas, Matplotlib, and Scikit-Learn.
+
+1.2 Installation and Setup
+1.2.1 Installing NumPy Using pip or conda
+NumPy can be installed using the pip or conda package managers. Here are the commands for both:
+•	Using pip:
+		pip install numpy
+•	Using conda:
+		conda install numpy
+
+1.2.2 Importing NumPy in Python
+To use NumPy in your Python code, you need to import it. By convention, it is imported as np:
+	import numpy as np
+
+1.2.3 Basic Usage and Conventions
+Basic operations using NumPy 
+
+Creating Arrays: You can create a NumPy array from a Python list.
+import numpy as np
+# Creating a 1D array
+array_1d = np.array([1, 2, 3, 4, 5])
+print("1D Array:", array_1d)
+
+# Creating a 2D array
+array_2d = np.array([[1, 2, 3], [4, 5, 6]])
+print("2D Array:\n", array_2d)
+
+Array Attributes: NumPy arrays have several useful attributes.
+print("Shape of 1D array:", array_1d.shape)
+print("Shape of 2D array:", array_2d.shape)
+print("Data type of elements in array:", array_1d.dtype)
+
+Basic Operations: You can perform element-wise operations on NumPy arrays.
+# Element-wise addition
+array_sum = array_1d + np.array([10, 20, 30, 40, 50])
+print("Element-wise addition:", array_sum)
+
+# Element-wise multiplication
+array_product = array_1d * 2
+print("Element-wise multiplication:", array_product)
+
+Array Slicing: NumPy allows slicing to access subsets of arrays.
+# Slicing a 1D array
+print("First three elements:", array_1d[:3])
+
+# Slicing a 2D array
+print("First row of 2D array:\n", array_2d[0, :])
+print("First column of 2D array:\n", array_2d[:, 0])
+
+Array Broadcasting: NumPy can handle arithmetic operations on arrays of different shapes through broadcasting.
+array_broadcast = array_2d + np.array([1, 2, 3])
+print("Broadcasting result:\n", array_broadcast)
+
+
+
